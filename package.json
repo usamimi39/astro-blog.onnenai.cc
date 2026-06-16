@@ -15,12 +15,19 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.5",
     "@astrojs/mdx": "^5.0.6",
+    "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "astro": "^6.3.8",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "sharp": "^0.34.3"
   },
   "devDependencies": {
+    "hastscript": "^9.0.1",
+    "unist-util-visit": "^5.1.0",
     "wrangler": "^4.95.0"
   },
   "overrides": {

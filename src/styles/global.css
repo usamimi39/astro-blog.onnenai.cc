@@ -139,3 +139,33 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* ---- 自動埋め込み (rehype-embed) ---- */
+.embed {
+	margin: 1.5em 0;
+}
+.embed--video {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 12px;
+	overflow: hidden;
+}
+.embed--video iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.embed--tweet,
+.embed--misskey {
+	display: flex;
+	justify-content: center;
+}
+.embed--tweet .twitter-tweet {
+	margin: 0 auto;
+}
+.embed--misskey iframe {
+	border-radius: 12px;
+}
