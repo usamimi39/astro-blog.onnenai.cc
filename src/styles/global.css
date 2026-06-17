@@ -5,6 +5,23 @@
  */
 
 :root {
+	/*
+	  欧文フォント (Adobe Fonts / Typekit: Century Gothic Pro)
+	  サイト内の英数字に適用。和文(--font-jp)より前に置くことで、
+	  英数字は century-gothic、グリフを持たない日本語は自動的に
+	  --font-jp へフォールバックする。
+	*/
+	--font-en: 'century-gothic';
+
+	/*
+	  日本語フォント (Adobe Fonts / Typekit: 小塚ゴシック Pr6N)
+	  R(400) / B(700) を使用。Adobe フォント読み込み前/失敗時は
+	  フォールバックの和文ゴシックを使用。
+	*/
+	--font-jp:
+		'kozuka-gothic-pr6n', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+		'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -17,7 +34,8 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 body {
-	font-family: var(--font-atkinson);
+	/* 英数字は Century Gothic Pro、和文は 小塚ゴシック にフォールバック */
+	font-family: var(--font-en), var(--font-jp);
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -46,19 +64,19 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
-}
-h2 {
 	font-size: 2.441em;
 }
-h3 {
+h2 {
 	font-size: 1.953em;
 }
-h4 {
+h3 {
 	font-size: 1.563em;
 }
-h5 {
+h4 {
 	font-size: 1.25em;
+}
+h5 {
+	font-size: 1em;
 }
 strong,
 b {
