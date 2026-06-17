@@ -75,6 +75,30 @@ export const providers = [
 		},
 	},
 
+	// ---- bilibili -------------------------------------------------------
+	{
+		name: 'bilibili',
+		match(url) {
+			const host = url.hostname.replace(/^www\./, '');
+			if (host !== 'bilibili.com' && host !== 'm.bilibili.com') return null;
+			const page = url.searchParams.get('p');
+			let m = url.pathname.match(/^\/video\/(BV[0-9A-Za-z]+)/);
+			if (m) return { kind: 'bvid', id: m[1], page };
+			m = url.pathname.match(/^\/video\/av(\d+)/i);
+			if (m) return { kind: 'aid', id: m[1], page };
+			return null;
+		},
+		render({ kind, id, page }) {
+			const params = new URLSearchParams();
+			params.set(kind === 'aid' ? 'aid' : 'bvid', id);
+			params.set('page', page && /^\d+$/.test(page) ? page : '1');
+			params.set('autoplay', '0');
+			params.set('high_quality', '1');
+			const src = `https://player.bilibili.com/player.html?${params.toString()}`;
+			return responsiveIframe(src, { title: 'Bilibili video player' });
+		},
+	},
+
 	// ---- Spotify --------------------------------------------------------
 	{
 		name: 'spotify',
