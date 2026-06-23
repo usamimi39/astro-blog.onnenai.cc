@@ -19,12 +19,6 @@ export default defineConfig({
     rehypePlugins: [rehypeEmbed],
   },
 
-  image: {
-    service: {
-      entrypoint: "astro/assets/services/noop",
-    },
-  },
-
   fonts: [
     {
       provider: fontProviders.local(),
