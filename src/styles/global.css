@@ -14,12 +14,12 @@
 	--font-en: 'century-gothic';
 
 	/*
-	  日本語フォント (Adobe Fonts / Typekit: 小塚ゴシック Pr6N)
-	  R(400) / B(700) を使用。Adobe フォント読み込み前/失敗時は
-	  フォールバックの和文ゴシックを使用。
+	  日本語フォント (Astro Fonts API: Noto Sans JP, Google Fonts provider)
+	  R(400) / B(700) を使用。ビルド時に自己ホスト化されるため
+	  読み込み前/失敗時はフォールバックの和文ゴシックを使用。
 	*/
 	--font-jp:
-		'kozuka-gothic-pr6n', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+		var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
 		'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
 
 	--accent: #2337ff;
