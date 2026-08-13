@@ -42,6 +42,21 @@ export default defineConfig({
         ],
       },
     },
+    {
+      provider: fontProviders.google(),
+      name: "Noto Sans JP",
+      cssVariable: "--font-noto-sans-jp",
+      weights: [400, 700],
+      subsets: ["japanese"],
+      fallbacks: [
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        "Yu Gothic",
+        "YuGothic",
+        "Meiryo",
+        "sans-serif",
+      ],
+    },
   ],
 
   adapter: cloudflare({
