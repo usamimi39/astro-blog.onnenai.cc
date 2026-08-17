@@ -21,6 +21,7 @@ import { h } from 'hastscript';
  */
 const MISSKEY_HOSTS = new Set([
 	'social.onnenai.cc', // 自分のインスタンス
+	'post.yourein.net', // 知り合いのインスタンス
 	'misskey.io',
 	'misskey.design',
 	'misskey.systems',

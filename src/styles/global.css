@@ -176,10 +176,6 @@ hr {
 	height: 100%;
 	border: 0;
 }
-.embed--misskey {
-	display: flex;
-	justify-content: center;
-}
 .embed--misskey iframe {
 	border-radius: 12px;
 }
