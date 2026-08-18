@@ -11,7 +11,7 @@ import ogImages from './src/integrations/og-images.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://blog.onnenai.cc",
   integrations: [mdx(), sitemap(), ogImages()],
 
   // 本文中の「URL だけの段落」を YouTube / Spotify / Twitter / Misskey の
