@@ -1,5 +1,7 @@
 # build output
 dist/
+# generated OGP images (src/integrations/og-images.mjs)
+public/og/
 # generated types
 .astro/
 # wrangler local state & cache
