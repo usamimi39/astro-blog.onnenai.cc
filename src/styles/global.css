@@ -6,21 +6,23 @@
 
 :root {
 	/*
-	  欧文フォント (Adobe Fonts / Typekit: Century Gothic Pro)
-	  サイト内の英数字に適用。和文(--font-jp)より前に置くことで、
-	  英数字は century-gothic、グリフを持たない日本語は自動的に
-	  --font-jp へフォールバックする。
+	  Gen Interface JP (Inter + Noto Sans JP ベース)
+	  欧文・和文どちらもこの1書体で表示する。npm パッケージ
+	  gen-interface-jp を BaseHead.astro で import してセルフホスト。
 	*/
-	--font-en: 'century-gothic';
+	--font-base:
+		'Gen Interface JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+		'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
 
 	/*
-	  日本語フォント (Astro Fonts API: Noto Sans JP, Google Fonts provider)
-	  R(400) / B(700) を使用。ビルド時に自己ホスト化されるため
-	  読み込み前/失敗時はフォールバックの和文ゴシックを使用。
+	  ウェイト。全体を一回り細めにしている (本文 300 / 見出し 500 / 太字 600)。
+	  変える場合は BaseHead.astro で import している
+	  gen-interface-jp/{weight}.css も合わせて変更すること。
 	*/
-	--font-jp:
-		var(--font-noto-sans-jp), 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
-		'Yu Gothic', 'YuGothic', 'Meiryo', sans-serif;
+	--font-weight-regular: 300;
+	--font-weight-bold: 600;
+	/* 見出し・カードタイトル用。強すぎないよう bold より一段細い Medium */
+	--font-weight-heading: 500;
 
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
@@ -34,8 +36,8 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 body {
-	/* 英数字は Century Gothic Pro、和文は 小塚ゴシック にフォールバック */
-	font-family: var(--font-en), var(--font-jp);
+	font-family: var(--font-base);
+	font-weight: var(--font-weight-regular);
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -61,6 +63,7 @@ h5,
 h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
+	font-weight: var(--font-weight-heading);
 	line-height: 1.2;
 }
 h1 {
@@ -79,8 +82,9 @@ h5 {
 	font-size: 0.8em;
 }
 strong,
-b {
-	font-weight: 700;
+b,
+th {
+	font-weight: var(--font-weight-bold);
 }
 a {
 	color: var(--accent);

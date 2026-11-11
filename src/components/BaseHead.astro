@@ -1,10 +1,13 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+// Gen Interface JP (npm パッケージからセルフホスト。Vite が woff2 をバンドルする)
+import 'gen-interface-jp/300.css';
+import 'gen-interface-jp/500.css';
+import 'gen-interface-jp/600.css';
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import { SITE_TITLE } from '../consts';
-import { Font } from 'astro:assets';
 
 interface Props {
 	title: string;
@@ -30,41 +33,6 @@ const ogImageURL = image instanceof URL ? image : image && new URL(image.src, As
 	href={new URL('rss.xml', Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Adobe Fonts (Typekit) — 小塚ゴシック Pr6N / Century Gothic Pro -->
-<script is:inline>
-	(function (d) {
-		var config = {
-				kitId: 'tlq1mko',
-				scriptTimeout: 3000,
-				async: true,
-			},
-			h = d.documentElement,
-			t = setTimeout(function () {
-				h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
-			}, config.scriptTimeout),
-			tk = d.createElement('script'),
-			f = false,
-			s = d.getElementsByTagName('script')[0],
-			a;
-		h.className += ' wf-loading';
-		tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-		tk.async = true;
-		tk.onload = tk.onreadystatechange = function () {
-			a = this.readyState;
-			if (f || (a && a != 'complete' && a != 'loaded')) return;
-			f = true;
-			clearTimeout(t);
-			try {
-				Typekit.load(config);
-			} catch (e) {}
-		};
-		s.parentNode.insertBefore(tk, s);
-	})(document);
-</script>
-
-<Font cssVariable="--font-atkinson" preload />
-<Font cssVariable="--font-noto-sans-jp" preload />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

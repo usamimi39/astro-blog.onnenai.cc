@@ -1,4 +1,4 @@
-// Generates a 1200x630 OGP image per blog post (`public/og/<id>.png`) using
+// Generates a 1200x630 OGP image per blog post (`public/og/<id>.jpg`) using
 // astro-og-canvas, so every post gets a proper social-share card instead of
 // the raw heroImage.
 //
@@ -9,7 +9,7 @@
 // canvaskit-wasm (astro-og-canvas's renderer) needs real Node filesystem
 // access to load its .wasm binary and font files that that sandbox can't
 // reliably provide. Running here, as a plain Node build step, sidesteps
-// that entirely: the PNGs are written straight into `public/`, which Astro
+// that entirely: the JPEGs are written straight into `public/`, which Astro
 // then just copies into the final output like any other static asset.
 import fs from 'node:fs';
 import path from 'node:path';
