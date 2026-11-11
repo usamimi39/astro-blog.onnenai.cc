@@ -6,13 +6,14 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'] & { id: string };
+type Props = CollectionEntry<'blog'>['data'] & { id?: string };
 
 const { id, title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
-// Every post gets a generated OGP card (see src/pages/og/[...route].ts),
-// so social shares always show a proper 1200x630 image, not the raw heroImage.
-const ogImageURL = new URL(`/og/${id}.jpg`, Astro.site);
+// Posts have a prebuilt OGP card at /og/<id>.jpg (public/og).
+// Pages without an id (e.g. /about) or without a card fall back to the
+// heroImage, and to no og:image at all if there is neither.
+const ogImageURL = id ? new URL(`/og/${id}.jpg`, Astro.site) : heroImage;
 ---
 
 <html lang="en">

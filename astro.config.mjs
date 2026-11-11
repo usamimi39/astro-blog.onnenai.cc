@@ -2,7 +2,7 @@
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
 
@@ -20,45 +20,6 @@ export default defineConfig({
     rehypePlugins: [rehypeEmbed],
   },
 
-  fonts: [
-    {
-      provider: fontProviders.local(),
-      name: "Atkinson",
-      cssVariable: "--font-atkinson",
-      fallbacks: ["sans-serif"],
-      options: {
-        variants: [
-          {
-            src: ["./src/assets/fonts/atkinson-regular.woff"],
-            weight: 400,
-            style: "normal",
-            display: "swap",
-          },
-          {
-            src: ["./src/assets/fonts/atkinson-bold.woff"],
-            weight: 700,
-            style: "normal",
-            display: "swap",
-          },
-        ],
-      },
-    },
-    {
-      provider: fontProviders.google(),
-      name: "Noto Sans JP",
-      cssVariable: "--font-noto-sans-jp",
-      weights: [400, 700],
-      subsets: ["japanese"],
-      fallbacks: [
-        "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans",
-        "Yu Gothic",
-        "YuGothic",
-        "Meiryo",
-        "sans-serif",
-      ],
-    },
-  ],
 
   adapter: cloudflare({
     imageService: 'compile'
